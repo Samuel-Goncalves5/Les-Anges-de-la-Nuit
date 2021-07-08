@@ -377,6 +377,8 @@
         <e p="Scripts" t="Include">
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="SpawnPlayers.cs" t="Include" />
         </e>
       </e>
       <e p="Les Anges de la Nuit - Classique.sln" t="IncludeFlat" />
