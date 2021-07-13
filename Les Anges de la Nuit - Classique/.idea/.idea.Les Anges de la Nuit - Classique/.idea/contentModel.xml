@@ -6,6 +6,11 @@
     <e p="C:\Users\samue\Desktop\Les Anges de la Nuit - Projet\Les Anges de la Nuit - Classique" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Animations" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="animationStateController.cs" t="Include" />
+          </e>
+        </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -375,9 +380,16 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AutoSave.cs" t="Include" />
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />
+          <e p="KickButton.cs" t="Include" />
+          <e p="KickOption.cs" t="Include" />
+          <e p="MenuSave.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerData.cs" t="Include" />
+          <e p="SaveSystem.cs" t="Include" />
+          <e p="Selection.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
         </e>
       </e>

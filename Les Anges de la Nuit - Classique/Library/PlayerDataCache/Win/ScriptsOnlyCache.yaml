@@ -1,9 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AutoSave
     - ConnectToServer
     - CreateAndJoinRooms
+    - KickButton
+    - KickOption
+    - MenuSave
     - PlayerController
+    - Selection
     - SpawnPlayers
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -21,6 +26,7 @@ ScriptsOnlyBuild:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
     - Photon.Pun.PhotonTransformView
+    - Photon.Pun.PhotonTransformViewClassic
     - Photon.Pun.PhotonView
     - Photon.Pun.ServerSettings
     Unity.Rider.Editor.dll:
@@ -41,13 +47,12 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/Jeu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
@@ -61,11 +66,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
     - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -74,16 +75,10 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 15348}
-    - Class: 114
-      Script: {instanceID: 15920}
+      Script: {instanceID: 12478}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
-    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -117,17 +112,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11272}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 11520}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11990}
+      Script: {instanceID: 11998}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 13052}
+      Script: {instanceID: 13068}
     - Class: 114
-      Script: {instanceID: 13486}
+      Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -192,45 +189,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11272}
     - Class: 114
-      Script: {instanceID: 11386}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11388}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11440}
     - Class: 114
-      Script: {instanceID: 11990}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 12064}
+      Script: {instanceID: 11998}
     - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12334}
+      Script: {instanceID: 12280}
     - Class: 114
-      Script: {instanceID: 12524}
+      Script: {instanceID: 12346}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12540}
     - Class: 114
-      Script: {instanceID: 12680}
+      Script: {instanceID: 12616}
     - Class: 114
-      Script: {instanceID: 12688}
+      Script: {instanceID: 12696}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12916}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12934}
     - Class: 114
-      Script: {instanceID: 13052}
+      Script: {instanceID: 12942}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13068}
     - Class: 114
-      Script: {instanceID: 13486}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13516}
+      Script: {instanceID: 13416}
     - Class: 114
-      Script: {instanceID: 15348}
+      Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13534}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -260,6 +259,67 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
+      Script: {instanceID: 0}
+    "Assets/Scenes/S\xE9lection.unity":
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11242}
+    - Class: 114
+      Script: {instanceID: 11244}
+    - Class: 114
+      Script: {instanceID: 11272}
+    - Class: 114
+      Script: {instanceID: 11522}
+    - Class: 114
+      Script: {instanceID: 11680}
+    - Class: 114
+      Script: {instanceID: 11738}
+    - Class: 114
+      Script: {instanceID: 11998}
+    - Class: 114
+      Script: {instanceID: 12310}
+    - Class: 114
+      Script: {instanceID: 12604}
+    - Class: 114
+      Script: {instanceID: 13068}
+    - Class: 114
+      Script: {instanceID: 13416}
+    - Class: 114
+      Script: {instanceID: 13502}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -340,6 +400,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 5cff97d41300513675b5c55ffdea7ae4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 2163458cae41cb1735c8b06fc34a9582
@@ -486,7 +552,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: c8d979e2ba2dd595a522d94900eac62d
+      Hash: eafdeca8c5a3837f7e6d04ad5f63af3d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreateAndJoinRooms
@@ -582,6 +648,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: b398958e258b390f087b83d168c2ede4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KickButton
+  - hash:
+      serializedVersion: 2
       Hash: 72f0e262cec16c9f4520dc3bf2b81796
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
@@ -616,6 +688,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Procedural
     className: Block
+  - hash:
+      serializedVersion: 2
+      Hash: 1a59b0bfa435fece91aca32ce0ea7321
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Selection
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -806,6 +884,12 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnPlayers
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: EventSystemSpawner
   - hash:
@@ -880,6 +964,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonRealtime.dll
     namespaceName: Photon.Realtime
     className: ConnectionHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 49fb50075d0c1dc086df7e5b0b9c1765
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KickOption
   - hash:
       serializedVersion: 2
       Hash: 19c703fb20b3231dbd1a21248e8bb11b
@@ -964,6 +1054,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 2211adbf8526daf2265ae73f3d6abb9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AutoSave
   - hash:
       serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
@@ -1536,6 +1632,12 @@ ScriptsOnlyBuild:
     className: Spaceship
   - hash:
       serializedVersion: 2
+      Hash: 491478dfb8ab3077f0053447944c72ad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuSave
+  - hash:
+      serializedVersion: 2
       Hash: 682d4da29621f1e31a31c1d5930918e6
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
@@ -1582,22 +1684,11 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerController
-  - hash:
-      serializedVersion: 2
-      Hash: d1f07c9e64b7817e6271f80bb03de25f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpawnPlayers
   platform: 5
   scenePathNames:
   - Assets/Scenes/Server-Load.unity
   - Assets/Scenes/Menu.unity
+  - "Assets/Scenes/S\xE9lection.unity"
   - Assets/Scenes/Jeu.unity
   playerPath: "C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Ex\xE9cutable
     Classique/Les Anges de la Nuit - Classique.exe"

@@ -72,9 +72,16 @@
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
+     <Compile Include="Assets\Scripts\AutoSave.cs" />
      <Compile Include="Assets\Scripts\ConnectToServer.cs" />
      <Compile Include="Assets\Scripts\CreateAndJoinRooms.cs" />
+     <Compile Include="Assets\Scripts\KickButton.cs" />
+     <Compile Include="Assets\Scripts\KickOption.cs" />
+     <Compile Include="Assets\Scripts\MenuSave.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerData.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem.cs" />
+     <Compile Include="Assets\Scripts\Selection.cs" />
      <Compile Include="Assets\Scripts\SpawnPlayers.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
