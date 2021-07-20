@@ -73,11 +73,15 @@
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
      <Compile Include="Assets\Scripts\AutoSave.cs" />
+     <Compile Include="Assets\Scripts\ChangeCommand.cs" />
      <Compile Include="Assets\Scripts\ConnectToServer.cs" />
      <Compile Include="Assets\Scripts\CreateAndJoinRooms.cs" />
+     <Compile Include="Assets\Scripts\GestionPseudo.cs" />
      <Compile Include="Assets\Scripts\KickButton.cs" />
      <Compile Include="Assets\Scripts\KickOption.cs" />
+     <Compile Include="Assets\Scripts\MenuInGame.cs" />
      <Compile Include="Assets\Scripts\MenuSave.cs" />
+     <Compile Include="Assets\Scripts\PersoNonJoueur.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerData.cs" />
      <Compile Include="Assets\Scripts\SaveSystem.cs" />

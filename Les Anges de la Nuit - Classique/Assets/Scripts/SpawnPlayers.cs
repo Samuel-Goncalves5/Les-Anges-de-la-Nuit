@@ -13,7 +13,7 @@ public class SpawnPlayers : MonoBehaviour
         {
             case "Elea"  : position = new Vector3(1,1,1); break;
             case "Eva"   : position = new Vector3(1,1,1); break;
-            case "Elena" : position = new Vector3(1,1,1); break;
+            case "Elena" : position = new Vector3(22,9,22); break;
             case "Emma"  : position = new Vector3(1,1,1); break;
             default      : position = new Vector3(1,1,1); break;
         }

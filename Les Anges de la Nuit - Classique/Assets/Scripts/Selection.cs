@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -40,10 +41,20 @@ public class Selection : MonoBehaviourPunCallbacks
     {
         LaunchButton.SetActive(PhotonNetwork.PlayerList.Length == sélection.Count);
 
+        if (!PhotonNetwork.InRoom) return;
+        
         string s = PhotonNetwork.CurrentRoom.Name + " :\n" + PhotonNetwork.CurrentRoom.PlayerCount;
-        s += PhotonNetwork.CountOfPlayers < 2 ? " joueur :\n" : " joueurs :\n";
+        s += " joueur";
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 2) s += "s";
+        s += " :\n";
+
         foreach (Player p in PhotonNetwork.PlayerList)
-            s += p.NickName + " : " + (string) p.CustomProperties["Character"] + "\n";
+        {
+            s += p.NickName;
+            string property = (string) p.CustomProperties["Character"] + "\n";
+            if (property != "\n") s += " : " + property;
+        }
+        
         List.text = s;
     }
 
@@ -114,6 +125,16 @@ public class Selection : MonoBehaviourPunCallbacks
     public void Elea() => SelectOne("Elea");
     public void Eva() => SelectOne("Eva");
     public void Elena() => SelectOne("Elena");
-    public void Quitter() => Application.Quit();
+    public void Quitter()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LocalPlayer.CustomProperties.Clear();
+        SceneManager.LoadScene("Menu");
+    }
+
     public void KickButton() => KickMenu.SetActive(!KickMenu.activeSelf);
 }

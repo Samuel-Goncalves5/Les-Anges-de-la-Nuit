@@ -8,7 +8,7 @@ public class MenuSave : MonoBehaviour
     public GameObject text;
     private void Start()
     {
-        PlayerData save = SaveSystem.LoadPlayer();
+        PlayerData save = SaveSystem.LoadPlayer(true);
         if (save?.general?[0] is null) return;
         buttonText.text = save.general[0];
         button.SetActive(true);

@@ -9,6 +9,8 @@ using Photon.Realtime;
 [Serializable]
 public static class SaveSystem
 {
+	public static PlayerData Sauvegarde;
+
 	// PARTIE SAUVEGARDE -
 	
 	public static void SaveGame()
@@ -16,9 +18,8 @@ public static class SaveSystem
 		BinaryFormatter formatter = new BinaryFormatter();
 		string path = Application.persistentDataPath + "/data.save";
 		FileStream stream = new FileStream(path, FileMode.Create);
-
 		var v = ActualData();
-		//if (v is null) return;
+		if (v is null) return;
 		formatter.Serialize(stream, v);
 		
 		stream.Close();
@@ -26,7 +27,8 @@ public static class SaveSystem
 
 	private static PlayerData ActualData()
 	{
-		PlayerData data = new PlayerData(PhotonNetwork.CurrentRoom.Name, PhotonNetwork.LocalPlayer.NickName);
+		if (Sauvegarde is null)
+			Sauvegarde = new PlayerData(PhotonNetwork.CurrentRoom.Name, PhotonNetwork.LocalPlayer.NickName);
 		
 		foreach (Player player in PhotonNetwork.PlayerList)
 		{
@@ -43,10 +45,10 @@ public static class SaveSystem
 			rotation[0] = r.x; rotation[1] = r.y;
 			rotation[2] = r.z; rotation[3] = r.w;
 
-			Save(data, (string) player.CustomProperties["Character"], position, rotation);
+			Save(Sauvegarde, (string) player.CustomProperties["Character"], position, rotation);
 		}
 		
-		return data;
+		return Sauvegarde;
 	}
 
 	public static string[] GetInfos(PlayerData data, string name)
@@ -108,7 +110,7 @@ public static class SaveSystem
 	
 	// PARTIE LECTURE -
 	
-	public static PlayerData LoadPlayer()
+	public static PlayerData LoadPlayer(bool firstTime = false)
 	{
 		string path = Application.persistentDataPath + "/data.save";
 		
@@ -118,11 +120,17 @@ public static class SaveSystem
 		FileStream stream = new FileStream(path, FileMode.Open);
 
 		if (stream.Length == 0) return null;
-		
-		PlayerData data = formatter.Deserialize(stream) as PlayerData;
-		stream.Close();
 
-		return data;
+		if (firstTime)
+		{
+			PlayerData temp = formatter.Deserialize(stream) as PlayerData;
+			stream.Close();
+			return temp;
+		}
+		
+		Sauvegarde = formatter.Deserialize(stream) as PlayerData;
+		stream.Close();
+		return Sauvegarde;
 	}
 	
 	// -----------------------------------------------
