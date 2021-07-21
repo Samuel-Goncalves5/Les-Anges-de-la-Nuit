@@ -17,12 +17,19 @@ public static class SaveSystem
 	{
 		BinaryFormatter formatter = new BinaryFormatter();
 		string path = Application.persistentDataPath + "/data.save";
-		FileStream stream = new FileStream(path, FileMode.Create);
-		var v = ActualData();
-		if (v is null) return;
-		formatter.Serialize(stream, v);
+		try
+		{
+			FileStream stream = new FileStream(path, FileMode.Create);
+			var v = ActualData();
+			if (v is null) return;
+			formatter.Serialize(stream, v);
 		
-		stream.Close();
+			stream.Close();
+		}
+		catch (Exception)
+		{
+			//Ignore la sauvegarde en cas de problème
+		}
 	}
 
 	private static PlayerData ActualData()
@@ -112,25 +119,32 @@ public static class SaveSystem
 	
 	public static PlayerData LoadPlayer(bool firstTime = false)
 	{
-		string path = Application.persistentDataPath + "/data.save";
-		
-		if (!File.Exists(path)) return null;
-		
-		BinaryFormatter formatter = new BinaryFormatter();
-		FileStream stream = new FileStream(path, FileMode.Open);
-
-		if (stream.Length == 0) return null;
-
-		if (firstTime)
+		try
 		{
-			PlayerData temp = formatter.Deserialize(stream) as PlayerData;
-			stream.Close();
-			return temp;
-		}
+			string path = Application.persistentDataPath + "/data.save";
 		
-		Sauvegarde = formatter.Deserialize(stream) as PlayerData;
-		stream.Close();
-		return Sauvegarde;
+			if (!File.Exists(path)) return null;
+		
+			BinaryFormatter formatter = new BinaryFormatter();
+			FileStream stream = new FileStream(path, FileMode.Open);
+
+			if (stream.Length == 0) return null;
+
+			if (firstTime)
+			{
+				PlayerData temp = formatter.Deserialize(stream) as PlayerData;
+				stream.Close();
+				return temp;
+			}
+		
+			Sauvegarde = formatter.Deserialize(stream) as PlayerData;
+			stream.Close();
+			return Sauvegarde;
+		}
+		catch (Exception)
+		{
+			return null;
+		}
 	}
 	
 	// -----------------------------------------------

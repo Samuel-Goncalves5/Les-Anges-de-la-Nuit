@@ -51,8 +51,9 @@ public class Selection : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             s += p.NickName;
-            string property = (string) p.CustomProperties["Character"] + "\n";
-            if (property != "\n") s += " : " + property;
+            string property = (string) p.CustomProperties["Character"];
+            if (property != "") s += " : " + property;
+            s += "\n";
         }
         
         List.text = s;

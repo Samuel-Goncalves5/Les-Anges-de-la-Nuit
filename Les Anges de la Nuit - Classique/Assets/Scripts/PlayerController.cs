@@ -4,10 +4,10 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
-    private PhotonView view              ;
-    public  GameObject eyes              ;
-    public  Rigidbody  Rigidbody         ;
-    public GameObject  Pseudo            ;
+    [HideInInspector] public PhotonView view;
+    public  GameObject eyes                 ;
+    public  Rigidbody  Rigidbody            ;
+    public GameObject  Pseudo               ;
 
     public Transform Reference;
     public Transform PiedDroit;
@@ -22,14 +22,21 @@ public class PlayerController : MonoBehaviour
     private int EnRecul        ;
     private int EnLAir         ;
     private int EnAvantDroit   ;
-    private int EnAtterrissage  ;
+    private int EnAtterrissage ;
     
     private void Awake()
     {
         view = GetComponent<PhotonView>();
-        eyes.SetActive(view.IsMine);
-        Pseudo.SetActive(!view.IsMine);
 
+        bool temp = view.IsMine;
+        if (temp) 
+        {
+            GestionPseudo.CameraLocalPlayer = eyes.transform;
+        }
+        
+        eyes.SetActive(temp);
+        Pseudo.SetActive(!temp);
+        
         //Partie Animation---
         EnMarche        = Animator.StringToHash("EnMarche"       );
         EnMarcheMoyenne = Animator.StringToHash("EnMarcheMoyenne");

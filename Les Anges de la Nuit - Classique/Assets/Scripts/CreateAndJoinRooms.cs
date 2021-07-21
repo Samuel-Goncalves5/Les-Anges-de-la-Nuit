@@ -11,32 +11,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public static bool Load;
 
     public void CreateRoom()
-    {
-        string roomName = createInput.text;
-        PhotonNetwork.CreateRoom(roomName, new RoomOptions {MaxPlayers = 4});
-        
-        string input = nameField.text;
-        PhotonNetwork.LocalPlayer.NickName = input;
-
-        Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
-        h.Add("Character", "");
-        PhotonNetwork.LocalPlayer.SetCustomProperties(h);
+    { 
+        PhotonNetwork.CreateRoom(createInput.text, new RoomOptions {MaxPlayers = 4});
     }
     
     public void JoinRoom()
     {
-        if (!PhotonNetwork.JoinRoom(joinInput.text))
-        {
-            //Pas de salle de ce nom
-        }
-        else
-        {
-            PhotonNetwork.LocalPlayer.NickName = nameField.text;
-            
-            Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
-            h.Add("Character", "");
-            PhotonNetwork.LocalPlayer.SetCustomProperties(h);
-        }
+        PhotonNetwork.JoinRoom(joinInput.text);
     }
 
     public void RecreateRoom()
@@ -49,14 +30,15 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         
         string input = nameField.text;
         PhotonNetwork.LocalPlayer.NickName = input == "" ? data.general[1] : input;
-
-        Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
-        h.Add("Character", "");
-        PhotonNetwork.LocalPlayer.SetCustomProperties(h);
     }
 
     public override void OnJoinedRoom()
     {
+        if (!Load) PhotonNetwork.LocalPlayer.NickName = nameField.text;
+        Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
+        h.Add("Character", "");
+        PhotonNetwork.LocalPlayer.SetCustomProperties(h);
+        
         PhotonNetwork.LoadLevel("Sélection"); // Charge une scène multijoueur
     }
 }

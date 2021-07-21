@@ -379,6 +379,7 @@
           <e p="ChangeCommand.cs" t="Include" />
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />
+          <e p="DialogueCanvas.cs" t="Include" />
           <e p="GestionPseudo.cs" t="Include" />
           <e p="KickButton.cs" t="Include" />
           <e p="KickOption.cs" t="Include" />

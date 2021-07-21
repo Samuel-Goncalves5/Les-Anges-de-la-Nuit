@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 public class AutoSave : MonoBehaviour
@@ -7,7 +8,7 @@ public class AutoSave : MonoBehaviour
     
     private void Start()
     {
-        StartCoroutine(SaveRoutine());
+        if (PhotonNetwork.IsMasterClient) StartCoroutine(SaveRoutine());
     }
 
     private IEnumerator SaveRoutine()
