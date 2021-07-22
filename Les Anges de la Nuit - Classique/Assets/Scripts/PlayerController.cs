@@ -4,6 +4,8 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool STOPCONTROL;
+    
     [HideInInspector] public PhotonView view;
     public  GameObject eyes                 ;
     public  Rigidbody  Rigidbody            ;
@@ -72,9 +74,9 @@ public class PlayerController : MonoBehaviour
         KeyCode boutonCourse        = MenuInGame.Commands[7];
         KeyCode boutonParler        = MenuInGame.Commands[8];
         
-        bool marche        = _animator.GetBool(EnMarche);
-        bool marcheMoyenne = _animator.GetBool(EnMarcheMoyenne);
-        bool marcheRapide  = _animator.GetBool(EnMarcheRapide);
+        bool marche        = !STOPCONTROL && _animator.GetBool(EnMarche);
+        bool marcheMoyenne = !STOPCONTROL && _animator.GetBool(EnMarcheMoyenne);
+        bool marcheRapide  = !STOPCONTROL && _animator.GetBool(EnMarcheRapide);
         bool air           = _animator.GetBool(EnLAir);
         
         DistanceUpdate();
@@ -82,7 +84,6 @@ public class PlayerController : MonoBehaviour
         JumpUpdate(air, boutonSauter, boutonRecul);
         AnimationUpdate(boutonRecul, marche, marcheMoyenne, marcheRapide, boutonMarche, boutonCourse);
         RunUpdate(marcheMoyenne, air, boutonMarche, boutonCourse);
-        SpeakUpdate(boutonParler);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -106,9 +107,9 @@ public class PlayerController : MonoBehaviour
         else if (marcheMoyenne) transform.Translate(0, 0, 1.5f * -5 * Time.deltaTime);
         else if (marche       ) transform.Translate(0, 0, 1f   * -5 * Time.deltaTime);
             
-        if (Input.GetKey(boutonRecul))         transform.Translate(0, 0, 2.5f * Time.deltaTime);
-        if (Input.GetKey(boutonTournerDroite)) transform.Rotate   (0, 200 * Time.deltaTime, 0);
-        if (Input.GetKey(boutonTournerGauche)) transform.Rotate   (0, -200 * Time.deltaTime, 0);
+        if (!STOPCONTROL && Input.GetKey(boutonRecul))         transform.Translate(0, 0, 2.5f * Time.deltaTime);
+        if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate   (0, 200 * Time.deltaTime, 0);
+        if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate   (0, -200 * Time.deltaTime, 0);
     }
     
     // JUMP
@@ -116,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!air
             && !_animator.GetBool(EnAtterrissage)
+            && !STOPCONTROL
             && Input.GetKeyDown(boutonSauter)
             && !Input.GetKey(boutonRecul))
         {
@@ -157,14 +159,15 @@ public class PlayerController : MonoBehaviour
         KeyCode boutonCourse)
     {
         _animator.SetBool(EnRecul, Input.GetKey(boutonRecul) 
+                                   && !STOPCONTROL
                                    && !marche 
                                    && !marcheMoyenne 
                                    && !marcheRapide);
         
-        _animator.SetBool(EnMarche, Input.GetKey(boutonMarche));
+        _animator.SetBool(EnMarche, Input.GetKey(boutonMarche) && !STOPCONTROL);
         
         _animator.SetBool(EnMarcheMoyenne, Input.GetKey(boutonMarche) 
-                                           && Input.GetKey(boutonCourse));
+                                           && Input.GetKey(boutonCourse) && !STOPCONTROL);
         
         _animator.SetBool(EnMarcheRapide, Input.GetKey(boutonMarche) 
                                           && Input.GetKey(boutonCourse) 
@@ -179,11 +182,5 @@ public class PlayerController : MonoBehaviour
             && Input.GetKey(boutonMarche) 
             && Input.GetKey(boutonCourse))
             StartCoroutine(RunRoutine(1));
-    }
-    
-    // PARLER
-    private void SpeakUpdate(KeyCode boutonParler)
-    {
-        
     }
 }
