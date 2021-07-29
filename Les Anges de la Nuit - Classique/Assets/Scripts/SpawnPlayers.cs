@@ -11,10 +11,10 @@ public class SpawnPlayers : MonoBehaviour
         
         switch (c)
         {
-            case "Elea"  : position = new Vector3(1,1,1); break;
-            case "Eva"   : position = new Vector3(1,1,1); break;
+            case "Elea"  : position = new Vector3(-15,1,2); break;
+            case "Eva"   : position = new Vector3(-21,9,4); break;
             case "Elena" : position = new Vector3(22,9,22); break;
-            case "Emma"  : position = new Vector3(1,1,1); break;
+            case "Emma"  : position = new Vector3(13,1,12); break;
             default      : position = new Vector3(1,1,1); break;
         }
         

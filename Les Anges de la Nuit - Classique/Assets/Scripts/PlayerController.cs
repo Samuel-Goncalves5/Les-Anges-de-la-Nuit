@@ -1,15 +1,20 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
     public static bool STOPCONTROL;
+
+    public static List<Recuperable> Objets = new List<Recuperable>();
     
     [HideInInspector] public PhotonView view;
     public  GameObject eyes                 ;
     public  Rigidbody  Rigidbody            ;
     public GameObject  Pseudo               ;
+
+    public GameObject Corps;
 
     public Transform Reference;
     public Transform PiedDroit;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if (temp) 
         {
             GestionPseudo.CameraLocalPlayer = eyes.transform;
+            if (!(Corps is null)) Corps.layer = 8;
         }
         
         eyes.SetActive(temp);
@@ -73,6 +79,8 @@ public class PlayerController : MonoBehaviour
         KeyCode boutonGrimper       = MenuInGame.Commands[6];
         KeyCode boutonCourse        = MenuInGame.Commands[7];
         KeyCode boutonParler        = MenuInGame.Commands[8];
+        KeyCode boutonRecuperer     = MenuInGame.Commands[9];
+        KeyCode boutonObjets        = MenuInGame.Commands[10];
         
         bool marche        = !STOPCONTROL && _animator.GetBool(EnMarche);
         bool marcheMoyenne = !STOPCONTROL && _animator.GetBool(EnMarcheMoyenne);
@@ -95,21 +103,27 @@ public class PlayerController : MonoBehaviour
         }
     }
     // TRANSLATE
-    private void TranslateUpdate
-        (bool marcheRapide,
-         bool marcheMoyenne,
-         bool marche,
-         KeyCode boutonRecul,
-         KeyCode boutonTournerDroite,
-         KeyCode boutonTournerGauche)
+    private void TranslateUpdate (bool marcheRapide, bool marcheMoyenne, bool marche,
+         KeyCode boutonRecul, KeyCode boutonTournerDroite, KeyCode boutonTournerGauche)
     {
-             if (marcheRapide ) transform.Translate(0, 0, 2f   * -5 * Time.deltaTime);
+        bool g = Grappin.MODEGRAPPIN;
+
+        if (g)
+        {
+            float rotation = Input.GetAxis("Mouse X") * Time.deltaTime;
+            transform.Rotate(0, rotation * 200, 0);
+        }
+        else
+        {
+            if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate   (0, 200 * Time.deltaTime, 0);
+            if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate   (0, -200 * Time.deltaTime, 0);
+        }
+        
+        if (marcheRapide ) transform.Translate(0, 0, 2f   * -5 * Time.deltaTime);
         else if (marcheMoyenne) transform.Translate(0, 0, 1.5f * -5 * Time.deltaTime);
         else if (marche       ) transform.Translate(0, 0, 1f   * -5 * Time.deltaTime);
-            
+        
         if (!STOPCONTROL && Input.GetKey(boutonRecul))         transform.Translate(0, 0, 2.5f * Time.deltaTime);
-        if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate   (0, 200 * Time.deltaTime, 0);
-        if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate   (0, -200 * Time.deltaTime, 0);
     }
     
     // JUMP
@@ -129,7 +143,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator CanJumpRoutine()
     {
         _animator.SetBool(EnAtterrissage, true);
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.05f);
         _animator.SetBool(EnAtterrissage, false);
     }
     

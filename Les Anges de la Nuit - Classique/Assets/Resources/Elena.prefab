@@ -409,7 +409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4579522118607826224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -806,13 +806,13 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: EnRecul
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: EnLAir
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: EnAvantDroit
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: EnAtterrissage
   m_SynchronizeLayers:
   - SynchronizeType: 2

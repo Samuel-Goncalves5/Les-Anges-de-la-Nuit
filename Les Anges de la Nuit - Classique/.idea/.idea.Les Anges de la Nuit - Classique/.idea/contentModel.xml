@@ -381,13 +381,17 @@
           <e p="CreateAndJoinRooms.cs" t="Include" />
           <e p="DialogueCanvas.cs" t="Include" />
           <e p="GestionPseudo.cs" t="Include" />
+          <e p="Grappin.cs" t="Include" />
           <e p="KickButton.cs" t="Include" />
           <e p="KickOption.cs" t="Include" />
           <e p="MenuInGame.cs" t="Include" />
+          <e p="MenuObjets.cs" t="Include" />
           <e p="MenuSave.cs" t="Include" />
           <e p="PersoNonJoueur.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerData.cs" t="Include" />
+          <e p="PoidsGrappin.cs" t="Include" />
+          <e p="Recuperable.cs" t="Include" />
           <e p="SaveSystem.cs" t="Include" />
           <e p="Selection.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />

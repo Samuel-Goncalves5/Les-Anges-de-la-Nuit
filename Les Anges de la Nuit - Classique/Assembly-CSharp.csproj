@@ -78,13 +78,17 @@
      <Compile Include="Assets\Scripts\CreateAndJoinRooms.cs" />
      <Compile Include="Assets\Scripts\DialogueCanvas.cs" />
      <Compile Include="Assets\Scripts\GestionPseudo.cs" />
+     <Compile Include="Assets\Scripts\Grappin.cs" />
      <Compile Include="Assets\Scripts\KickButton.cs" />
      <Compile Include="Assets\Scripts\KickOption.cs" />
      <Compile Include="Assets\Scripts\MenuInGame.cs" />
+     <Compile Include="Assets\Scripts\MenuObjets.cs" />
      <Compile Include="Assets\Scripts\MenuSave.cs" />
      <Compile Include="Assets\Scripts\PersoNonJoueur.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerData.cs" />
+     <Compile Include="Assets\Scripts\PoidsGrappin.cs" />
+     <Compile Include="Assets\Scripts\Recuperable.cs" />
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\Selection.cs" />
      <Compile Include="Assets\Scripts\SpawnPlayers.cs" />
@@ -96,6 +100,9 @@
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -114,6 +121,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/samue/Desktop/Les Anges de la Nuit - Projet/Les Anges de la Nuit - Classique/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
