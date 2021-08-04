@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PoidsGrappin : MonoBehaviour
@@ -7,30 +7,38 @@ public class PoidsGrappin : MonoBehaviour
     
     public Grappin Grappin;
     public float Vitesse;
-    public Transform PositionDepart;
     public Vector3 PositionFin;
     public LineRenderer lineRenderer;
+    private static Rigidbody Rigidbody;
 
-    private void Awake()
-    {
-        lineRenderer.enabled = true;
-    }
+    private bool preparation = true;
 
     private void Update()
     {
         lineRenderer.SetPosition(1, transform.position);
-        if (launched) Bouger();
+        if (!launched) return;
+        if (preparation) StartCoroutine(Preparation());
+        lineRenderer.enabled = true;
+        Bouger();
+    }
+
+    private IEnumerator Preparation()
+    {
+        preparation = false;
+        yield return new WaitForSeconds(0.001f);
+        transform.LookAt(Grappin.transform);
     }
     
-    public void Bouger()
+    private void Bouger()
     {
         transform.position = Vector3.Lerp(transform.position, PositionFin, Vitesse * Time.deltaTime / Vector3.Distance(transform.position, PositionFin));
         lineRenderer.SetPosition(1, transform.position);
-        
+
         if (Vector3.Distance(transform.position, PositionFin) < 1f)
         {
             Grappin.isMoving = true;
-            Grappin.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            if (Rigidbody is null) Rigidbody = Grappin.gameObject.GetComponent<Rigidbody>();
+            Rigidbody.useGravity = false;
         }
     }
 }

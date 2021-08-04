@@ -377,11 +377,13 @@
         <e p="Scripts" t="Include">
           <e p="AutoSave.cs" t="Include" />
           <e p="ChangeCommand.cs" t="Include" />
+          <e p="Chat.cs" t="Include" />
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />
           <e p="DialogueCanvas.cs" t="Include" />
           <e p="GestionPseudo.cs" t="Include" />
           <e p="Grappin.cs" t="Include" />
+          <e p="IAPlayer.cs" t="Include" />
           <e p="KickButton.cs" t="Include" />
           <e p="KickOption.cs" t="Include" />
           <e p="MenuInGame.cs" t="Include" />
@@ -391,10 +393,12 @@
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerData.cs" t="Include" />
           <e p="PoidsGrappin.cs" t="Include" />
+          <e p="Rafale.cs" t="Include" />
           <e p="Recuperable.cs" t="Include" />
           <e p="SaveSystem.cs" t="Include" />
           <e p="Selection.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
+          <e p="Waypoints.cs" t="Include" />
         </e>
       </e>
       <e p="Les Anges de la Nuit - Classique.sln" t="IncludeFlat" />

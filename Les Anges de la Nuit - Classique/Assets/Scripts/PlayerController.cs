@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public Transform PiedDroit;
     public Transform PiedGauche;
 
+    public GameObject Cinemachine1;
+    public GameObject Cinemachine2;
+    
     //Partie Animation---
     public Animator _animator;
 
@@ -44,7 +47,9 @@ public class PlayerController : MonoBehaviour
         
         eyes.SetActive(temp);
         Pseudo.SetActive(!temp);
-        
+        Cinemachine1.SetActive(temp);
+        Cinemachine2.SetActive(temp);
+
         //Partie Animation---
         EnMarche        = Animator.StringToHash("EnMarche"       );
         EnMarcheMoyenne = Animator.StringToHash("EnMarcheMoyenne");
@@ -106,18 +111,11 @@ public class PlayerController : MonoBehaviour
     private void TranslateUpdate (bool marcheRapide, bool marcheMoyenne, bool marche,
          KeyCode boutonRecul, KeyCode boutonTournerDroite, KeyCode boutonTournerGauche)
     {
-        bool g = Grappin.MODEGRAPPIN;
-
-        if (g)
-        {
-            float rotation = Input.GetAxis("Mouse X") * Time.deltaTime;
-            transform.Rotate(0, rotation * 200, 0);
-        }
-        else
-        {
-            if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate   (0, 200 * Time.deltaTime, 0);
-            if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate   (0, -200 * Time.deltaTime, 0);
-        }
+        float rotation = Input.GetAxis("Mouse X") * Time.deltaTime;
+        transform.Rotate(0, rotation * 300, 0);
+        
+        if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate(0, 200 * Time.deltaTime, 0);
+        if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate(0, -200 * Time.deltaTime, 0);
         
         if (marcheRapide ) transform.Translate(0, 0, 2f   * -5 * Time.deltaTime);
         else if (marcheMoyenne) transform.Translate(0, 0, 1.5f * -5 * Time.deltaTime);
