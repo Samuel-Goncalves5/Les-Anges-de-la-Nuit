@@ -381,6 +381,7 @@
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />
           <e p="DialogueCanvas.cs" t="Include" />
+          <e p="DifferentLevelCheck.cs" t="Include" />
           <e p="GestionPseudo.cs" t="Include" />
           <e p="Grappin.cs" t="Include" />
           <e p="IAPlayer.cs" t="Include" />
@@ -398,6 +399,7 @@
           <e p="SaveSystem.cs" t="Include" />
           <e p="Selection.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
+          <e p="TransitionScene.cs" t="Include" />
           <e p="Waypoints.cs" t="Include" />
         </e>
       </e>

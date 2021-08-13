@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\ConnectToServer.cs" />
      <Compile Include="Assets\Scripts\CreateAndJoinRooms.cs" />
      <Compile Include="Assets\Scripts\DialogueCanvas.cs" />
+     <Compile Include="Assets\Scripts\DifferentLevelCheck.cs" />
      <Compile Include="Assets\Scripts\GestionPseudo.cs" />
      <Compile Include="Assets\Scripts\Grappin.cs" />
      <Compile Include="Assets\Scripts\IAPlayer.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\Selection.cs" />
      <Compile Include="Assets\Scripts\SpawnPlayers.cs" />
+     <Compile Include="Assets\Scripts\TransitionScene.cs" />
      <Compile Include="Assets\Scripts\Waypoints.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />

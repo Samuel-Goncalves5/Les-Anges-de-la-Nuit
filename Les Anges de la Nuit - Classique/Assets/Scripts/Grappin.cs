@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Grappin : MonoBehaviour
 {
-    public static bool MODEGRAPPIN;
-    public GameObject PoidsGrappin;
-    private PoidsGrappin pg;
+    
+    public static GameObject PoidsGrappin;
 
     public CapsuleCollider NormalCollider;
     public CapsuleCollider GrappinCollider;
-    
-    public GameObject Cinemachine1;
-    public GameObject Cinemachine2;
+
+    public Transform PositionDepartPerso;
     
     public Camera Camera;
     public Camera GrappinCamera;
@@ -21,7 +19,13 @@ public class Grappin : MonoBehaviour
     public Vector3 PositionFin;
     public float vitesseGrappin;
     public Transform PositionDepart;
-    
+    private static readonly int EnGrappin1 = Animator.StringToHash("EnGrappin");
+
+    private void Start()
+    {
+        enabled = gameObject.GetComponent<PhotonView>().IsMine;
+    }
+
     private void Update()
     {
         if (isMoving && GrappinCollider.isTrigger)
@@ -35,16 +39,6 @@ public class Grappin : MonoBehaviour
             NormalCollider.isTrigger = false;
             GrappinCollider.isTrigger = true;
         }
-        
-        try
-        {
-            pg.lineRenderer.SetPosition(0, PositionDepart.position);
-        }
-        catch (System.Exception)
-        {
-            isMoving = false;
-        }
-        
         
         if (Input.GetKeyDown(MenuInGame.Commands[6])) Tirer();
 
@@ -60,20 +54,28 @@ public class Grappin : MonoBehaviour
             }
             else
             {
-                try
-                {
-                    if (!(PoidsGrappin is null) && PoidsGrappin.activeSelf) return;
-                }
+                try {if (!(PoidsGrappin is null) && PoidsGrappin.activeSelf) return;}
                 catch (UnassignedReferenceException) {}
-
+                
                 Camera.gameObject.SetActive(true);
-                Cinemachine1.SetActive(true);
                 GrappinCamera.gameObject.SetActive(false);
-                Cinemachine2.SetActive(false);
-                MODEGRAPPIN = false;
-                PositionDepart.parent.gameObject.SetActive(false);
+                GetComponent<PhotonView>().RPC("ActiveLanceGrappin", RpcTarget.All, 
+                    transform.name, false);
+                
             }
         }
+
+        bool EnGrappin;
+        try {EnGrappin = !(PoidsGrappin is null) && PoidsGrappin.activeSelf;}
+        catch (UnassignedReferenceException) {EnGrappin = false;}
+
+        PlayerController.Animator.SetBool(EnGrappin1, EnGrappin);
+    }
+
+    [PunRPC]
+    public void ActiveLanceGrappin(string name, bool activation)
+    {
+        GameObject.Find(name).GetComponent<Grappin>().PositionDepart.parent.gameObject.SetActive(activation);
     }
 
     private void Tirer()
@@ -87,13 +89,10 @@ public class Grappin : MonoBehaviour
                 isMoving = false;
                 PlayerController.STOPCONTROL = false;
                 gameObject.GetComponent<Rigidbody>().useGravity = true;
-                if (!(PoidsGrappin is null))Destroy(PoidsGrappin);
+                if (!(PoidsGrappin is null)) PhotonNetwork.Destroy(PoidsGrappin);
+                
                 PoidsGrappin = PhotonNetwork.Instantiate("Grappin", transform.position, transform.rotation);
-                pg = PoidsGrappin.GetComponent<PoidsGrappin>();
-                pg.lineRenderer.SetPosition(0, PositionDepart.position);
-                pg.Grappin = this;
-                pg.PositionFin = PositionFin;
-                pg.launched = true;
+                gameObject.GetComponent<PhotonView>().RPC("RenameGrappin", RpcTarget.All, PoidsGrappin.name, gameObject.name);
                 
                 PlayerController.STOPCONTROL = true;
             }
@@ -101,14 +100,18 @@ public class Grappin : MonoBehaviour
         else
         {
             Camera.gameObject.SetActive(false);
-            Cinemachine1.SetActive(false);
             GrappinCamera.gameObject.SetActive(true);
-            Cinemachine2.SetActive(true);
-            MODEGRAPPIN = true;
-            PositionDepart.parent.gameObject.SetActive(true);
+            GetComponent<PhotonView>().RPC("ActiveLanceGrappin", RpcTarget.All, 
+                transform.name, true);
         }
     }
 
+    [PunRPC]
+    public void RenameGrappin(string g, string s)
+    {
+        GameObject.Find(g).name = "Grappin_" + s;
+    }
+    
     private void Bouger()
     {
         transform.position = Vector3.Lerp(transform.position, PositionFin, vitesseGrappin * Time.deltaTime / Vector3.Distance(transform.position, PositionFin));
@@ -119,7 +122,7 @@ public class Grappin : MonoBehaviour
             PlayerController.STOPCONTROL = false;
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.useGravity = true;
-            Destroy(PoidsGrappin);
+            PhotonNetwork.Destroy(PoidsGrappin);
             PoidsGrappin = null;
         }
     }

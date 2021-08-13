@@ -19,20 +19,32 @@ public class Selection : MonoBehaviourPunCallbacks
     private void Start()
     {
         StartCoroutine(ReloadRoutine());
+
+        if (!PhotonNetwork.IsMasterClient && PhotonNetwork.MasterClient.CustomProperties.ContainsKey("Save"))
+        {
+            SaveSystem.Sauvegarde = (PlayerData) PhotonNetwork.MasterClient.CustomProperties["Save"];
+            CreateAndJoinRooms.Load = true;
+        }
+        else if (PhotonNetwork.IsMasterClient)
+            PhotonNetwork.LocalPlayer.CustomProperties.Add("Save", SaveSystem.LoadPlayer());
     }
 
     IEnumerator ReloadRoutine()
     {
-        sélection.Clear();
-        
-        foreach (Player p in PhotonNetwork.PlayerList)
+        try
         {
-            string s = (string) p.CustomProperties["Character"];
-            if (s != "") sélection.Add(s, p);
-        }
+            sélection.Clear();
 
-        Kick.SetActive(PhotonNetwork.IsMasterClient);
-        
+            foreach (Player p in PhotonNetwork.PlayerList)
+            {
+                string s = (string) p.CustomProperties["Character"];
+                if (s != "") sélection.Add(s, p);
+            }
+
+            Kick.SetActive(PhotonNetwork.IsMasterClient);
+        }
+        catch (System.NullReferenceException) {yield break;}
+
         yield return new WaitForSeconds(5);
         StartCoroutine(ReloadRoutine());
     }

@@ -10,21 +10,19 @@ public class PlayerController : MonoBehaviour
     public static List<Recuperable> Objets = new List<Recuperable>();
     
     [HideInInspector] public PhotonView view;
-    public  GameObject eyes                 ;
-    public  Rigidbody  Rigidbody            ;
-    public GameObject  Pseudo               ;
-
-    public GameObject Corps;
-
-    public Transform Reference;
-    public Transform PiedDroit;
-    public Transform PiedGauche;
-
-    public GameObject Cinemachine1;
-    public GameObject Cinemachine2;
+    
+    public Rigidbody  Rigidbody  ;
+    public GameObject eyes       ;
+    public GameObject Pseudo     ;
+    public GameObject Cinemachine;
+    public GameObject Corps      ;
+    public Transform  Reference  ;
+    public Transform  PiedDroit  ;
+    public Transform  PiedGauche ;
     
     //Partie Animation---
-    public Animator _animator;
+    public        Animator _animator;
+    public static Animator  Animator;
 
     private int EnMarcheMoyenne;
     private int EnMarcheRapide ;
@@ -33,22 +31,24 @@ public class PlayerController : MonoBehaviour
     private int EnLAir         ;
     private int EnAvantDroit   ;
     private int EnAtterrissage ;
+    private int AnimGrappin    ;
     
     private void Awake()
     {
         view = GetComponent<PhotonView>();
 
         bool temp = view.IsMine;
-        if (temp) 
+        if (temp)
         {
+            Animator = _animator;
             GestionPseudo.CameraLocalPlayer = eyes.transform;
             if (!(Corps is null)) Corps.layer = 8;
+            GetComponent<Grappin>().PositionDepart.parent.GetChild(0).gameObject.layer = 8;
         }
         
         eyes.SetActive(temp);
         Pseudo.SetActive(!temp);
-        Cinemachine1.SetActive(temp);
-        Cinemachine2.SetActive(temp);
+        Cinemachine.SetActive(temp);
 
         //Partie Animation---
         EnMarche        = Animator.StringToHash("EnMarche"       );
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
         EnLAir          = Animator.StringToHash("EnLAir"         );
         EnAvantDroit    = Animator.StringToHash("EnAvantDroit"   );
         EnAtterrissage  = Animator.StringToHash("EnAtterrissage" );
+        AnimGrappin     = Animator.StringToHash("AnimGrappin"    );
     }
     
     IEnumerator RunRoutine(float s)
@@ -79,18 +80,23 @@ public class PlayerController : MonoBehaviour
         KeyCode boutonRecul         = MenuInGame.Commands[1];
         KeyCode boutonTournerDroite = MenuInGame.Commands[2];
         KeyCode boutonTournerGauche = MenuInGame.Commands[3];
-        KeyCode boutonMenu          = MenuInGame.Commands[4];
+        //KeyCode boutonMenu          = MenuInGame.Commands[4];
         KeyCode boutonSauter        = MenuInGame.Commands[5];
-        KeyCode boutonGrimper       = MenuInGame.Commands[6];
+        //KeyCode boutonGrimper       = MenuInGame.Commands[6];
         KeyCode boutonCourse        = MenuInGame.Commands[7];
-        KeyCode boutonParler        = MenuInGame.Commands[8];
-        KeyCode boutonRecuperer     = MenuInGame.Commands[9];
-        KeyCode boutonObjets        = MenuInGame.Commands[10];
+        //KeyCode boutonParler        = MenuInGame.Commands[8];
+        //KeyCode boutonRecuperer     = MenuInGame.Commands[9];
+        //KeyCode boutonObjets        = MenuInGame.Commands[10];
         
         bool marche        = !STOPCONTROL && _animator.GetBool(EnMarche);
         bool marcheMoyenne = !STOPCONTROL && _animator.GetBool(EnMarcheMoyenne);
         bool marcheRapide  = !STOPCONTROL && _animator.GetBool(EnMarcheRapide);
         bool air           = _animator.GetBool(EnLAir);
+        //bool grappin       = _animator.GetBool(EnGrappin);
+
+        bool a = _animator.GetCurrentAnimatorStateInfo(0).IsName("Grappin");
+        bool b = _animator.GetCurrentAnimatorStateInfo(0).IsName("Grappin 2");
+        _animator.SetBool(AnimGrappin, a || b);
         
         DistanceUpdate();
         TranslateUpdate(marcheRapide, marcheMoyenne, marche, boutonRecul, boutonTournerDroite, boutonTournerGauche);
@@ -101,12 +107,34 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //if (other.gameObject.CompareTag("Plateforme"))
+        ContactPoint cp = other.GetContact(0);
+        if (cp.normal.y > 0.5f)
         {
             StartCoroutine(CanJumpRoutine());
             _animator.SetBool(EnLAir, false);
         }
+        //if (other.gameObject.CompareTag("Plateforme"))
     }
+
+    private void OnCollisionStay(Collision other)
+    {
+        ContactPoint cp = other.GetContact(0);
+        if (cp.normal.y < 0.1f && Input.GetKeyDown(MenuInGame.Commands[5]))
+        {
+            if (_animator.GetBool(EnLAir))
+            {
+                bool a = _animator.GetCurrentAnimatorStateInfo(0).IsName("SautDroit");
+                bool b = _animator.GetCurrentAnimatorStateInfo(0).IsName("MidSautDroit");
+                bool c = _animator.GetCurrentAnimatorStateInfo(0).IsName("PostSautDroit");
+                if (a || b || c) _animator.Play("SautGauche");
+                else _animator.Play("SautDroit");
+
+                transform.Rotate(0,180, 0, Space.World);
+                Rigidbody.AddForce(new Vector3(0,2,0), ForceMode.Impulse);
+            }
+        }
+    }
+
     // TRANSLATE
     private void TranslateUpdate (bool marcheRapide, bool marcheMoyenne, bool marche,
          KeyCode boutonRecul, KeyCode boutonTournerDroite, KeyCode boutonTournerGauche)
@@ -149,16 +177,16 @@ public class PlayerController : MonoBehaviour
     private float Distance(Transform t)
     {
         Vector3 temp = Reference.position - t.position;
-        Vector3 Ref = transform.forward;
-        return new Vector3(temp.x * Ref.x, temp.y * Ref.y, temp.z * Ref.z).sqrMagnitude;
+        Vector3 refVector3 = transform.forward;
+        return new Vector3(temp.x * refVector3.x, temp.y * refVector3.y, temp.z * refVector3.z).sqrMagnitude;
     }
 
     private void DistanceUpdate()
     {
-        float DistanceDroite = Distance(PiedDroit);
-        float DistanceGauche = Distance(PiedGauche);
+        float distanceDroite = Distance(PiedDroit);
+        float distanceGauche = Distance(PiedGauche);
         
-        _animator.SetBool(EnAvantDroit, DistanceDroite > DistanceGauche);
+        _animator.SetBool(EnAvantDroit, distanceDroite > distanceGauche);
     }
     
     // ANIMATION

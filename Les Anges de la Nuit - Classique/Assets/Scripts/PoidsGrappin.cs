@@ -1,32 +1,34 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
 using UnityEngine;
 
 public class PoidsGrappin : MonoBehaviour
 {
-    public bool launched;
-    
     public Grappin Grappin;
     public float Vitesse;
     public Vector3 PositionFin;
     public LineRenderer lineRenderer;
     private static Rigidbody Rigidbody;
+    private Transform PositionDepart;
+    
+    private void Start()
+    {
+        string s = gameObject.name;
+        Grappin = GameObject.Find(s.Split('_')[1]).GetComponent<Grappin>();
 
-    private bool preparation = true;
+        PositionDepart =
+            Grappin == ((GameObject) PhotonNetwork.LocalPlayer.CustomProperties["Personnage"]).GetComponent<Grappin>()? 
+                Grappin.PositionDepartPerso.transform : Grappin.PositionDepart;
+        
+        PositionFin = Grappin.PositionFin;
+        transform.LookAt(Grappin.transform);
+    }
 
     private void Update()
     {
         lineRenderer.SetPosition(1, transform.position);
-        if (!launched) return;
-        if (preparation) StartCoroutine(Preparation());
+        lineRenderer.SetPosition(0, PositionDepart.position);
         lineRenderer.enabled = true;
         Bouger();
-    }
-
-    private IEnumerator Preparation()
-    {
-        preparation = false;
-        yield return new WaitForSeconds(0.001f);
-        transform.LookAt(Grappin.transform);
     }
     
     private void Bouger()

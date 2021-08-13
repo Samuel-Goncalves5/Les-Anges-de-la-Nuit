@@ -28,6 +28,7 @@ public static class SaveSystem
 		}
 		catch (Exception)
 		{
+			Debug.Log("Sauvegarde impossible");
 			//Ignore la sauvegarde en cas de problème
 		}
 	}
@@ -35,13 +36,17 @@ public static class SaveSystem
 	private static PlayerData ActualData()
 	{
 		if (Sauvegarde is null)
-			Sauvegarde = new PlayerData(PhotonNetwork.CurrentRoom.Name, PhotonNetwork.LocalPlayer.NickName);
+			Sauvegarde = 
+				new PlayerData(
+					PhotonNetwork.CurrentRoom.Name, 
+					PhotonNetwork.LocalPlayer.NickName
+					);
 		
 		foreach (Player player in PhotonNetwork.PlayerList)
 		{
 			GameObject perso = (GameObject) player.CustomProperties["Personnage"];
 
-			if (perso is null) return null;
+			if (perso is null) continue;
 			
 			Vector3 p = perso.transform.position;
 			float[] position = new float[3];
@@ -52,7 +57,7 @@ public static class SaveSystem
 			rotation[0] = r.x; rotation[1] = r.y;
 			rotation[2] = r.z; rotation[3] = r.w;
 
-			Save(Sauvegarde, (string) player.CustomProperties["Character"], position, rotation);
+			Save(Sauvegarde, (string) player.CustomProperties["Character"], position, rotation, (string) player.CustomProperties["Level"]);
 		}
 		
 		return Sauvegarde;
@@ -62,10 +67,10 @@ public static class SaveSystem
 	{
 		switch (name)
 		{
-			case "Elea"  : return data.elea;
-			case "Emma"  : return data.emma;
+			case "Elea"  : return data.elea ;
+			case "Emma"  : return data.emma ;
 			case "Elena" : return data.elena;
-			case "Eva"   : return data.eva;
+			case "Eva"   : return data.eva  ;
 		}
         
 		throw new ArgumentException();
@@ -75,10 +80,10 @@ public static class SaveSystem
 	{
 		switch (name)
 		{
-			case "Elea"  : data.eleaInitialized = true; return;
-			case "Emma"  : data.emmaInitialized = true; return;
+			case "Elea"  : data.eleaInitialized  = true; return;
+			case "Emma"  : data.emmaInitialized  = true; return;
 			case "Elena" : data.elenaInitialized = true; return;
-			case "Eva"   : data.evaInitialized = true; return;
+			case "Eva"   : data.evaInitialized   = true; return;
 		}
 		throw new ArgumentException();
 	}
@@ -95,13 +100,15 @@ public static class SaveSystem
 		throw new ArgumentException();
 	}
 	
-	private static void Save(PlayerData data, string name, float[] position, float[] rotation)
+	private static void Save(PlayerData data, string name, float[] position, float[] rotation, string levelName)
 	{
-		Save(GetInfos(data, name), position, rotation);
+		if (levelName is null) levelName = "Jeu";
+		
+		Save(GetInfos(data, name), position, rotation, levelName);
 		Initialize(data, name);
 	}
 
-	private static void Save(string[] name, float[] position, float[] rotation)
+	private static void Save(string[] name, float[] position, float[] rotation, string levelName)
 	{
 		name[0] = position[0].ToString(CultureInfo.InvariantCulture);
 		name[1] = position[1].ToString(CultureInfo.InvariantCulture);
@@ -111,6 +118,8 @@ public static class SaveSystem
 		name[4] = rotation[1].ToString(CultureInfo.InvariantCulture);
 		name[5] = rotation[2].ToString(CultureInfo.InvariantCulture);
 		name[6] = rotation[3].ToString(CultureInfo.InvariantCulture);
+
+		name[7] = levelName;
 	}
 	
 	// -----------------------------------------------

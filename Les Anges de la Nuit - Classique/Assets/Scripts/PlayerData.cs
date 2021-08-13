@@ -17,10 +17,10 @@ public class PlayerData
         general[0] = roomName;
         general[1] = nickName;
         
-        elea  = new string[7];
-        emma  = new string[7];
-        elena = new string[7];
-        eva   = new string[7];
+        elea  = new string[8];
+        emma  = new string[8];
+        elena = new string[8];
+        eva   = new string[8];
 
         eleaInitialized = false;
         emmaInitialized = false;
