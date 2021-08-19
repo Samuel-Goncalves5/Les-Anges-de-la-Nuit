@@ -74,6 +74,7 @@ public class Selection : MonoBehaviourPunCallbacks
     [PunRPC]
     public void GlobalLaunch()
     {
+        Chargement.On();
         PhotonNetwork.CurrentRoom.MaxPlayers = (byte) PhotonNetwork.PlayerList.Length;
         PhotonNetwork.LoadLevel("Jeu");
     }

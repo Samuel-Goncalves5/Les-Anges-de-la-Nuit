@@ -10,6 +10,7 @@ public class SpawnPlayers : MonoBehaviour
     private void StartSpawn(string c)
     {
         Vector3 position;
+        Quaternion rotation = Quaternion.identity;
         string levelName = SceneManager.GetActiveScene().name;
         
         switch (levelName)
@@ -30,12 +31,13 @@ public class SpawnPlayers : MonoBehaviour
             {
                 switch (c)
                 {
-                    case "Elea"  : position = new Vector3(-15,1,2); break;
-                    case "Eva"   : position = new Vector3(-21,9,4); break;
-                    case "Elena" : position = new Vector3(22,9,22); break;
-                    case "Emma"  : position = new Vector3(13,1,12); break;
-                    default      : position = new Vector3(1 ,1,1 ); break;
+                    case "Elea"  : position = new Vector3(-9,6.4f,-3); break;
+                    case "Eva"   : position = new Vector3(-7,.15f,-3); break;
+                    case "Elena" : position = new Vector3(9,.15f,-3); break;
+                    case "Emma"  : position = new Vector3(-9,.15f,-3); break;
+                    default      : position = new Vector3(-9,.15f,-3); break;
                 }
+                rotation = Quaternion.Euler(0,-90,0);
                 break;
             }
             
@@ -43,7 +45,7 @@ public class SpawnPlayers : MonoBehaviour
         }
         
         Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
-        GameObject g = PhotonNetwork.Instantiate(c, position, Quaternion.identity);
+        GameObject g = PhotonNetwork.Instantiate(c, position, rotation);
         if (!h.ContainsKey("Personnage")) h.Add("Personnage", g);
         h["Personnage"] = g;
         if (!h.ContainsKey("Level")) h.Add("Level", levelName);
@@ -56,6 +58,8 @@ public class SpawnPlayers : MonoBehaviour
         GameObject g = PhotonNetwork.Instantiate(c, position, rotation);
         if (!h.ContainsKey("Personnage")) h.Add("Personnage", g);
         h["Personnage"] = g;
+        
+        
     }
     
     private void Start()

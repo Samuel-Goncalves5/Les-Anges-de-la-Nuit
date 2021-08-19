@@ -375,8 +375,11 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Ascenseur.cs" t="Include" />
           <e p="AutoSave.cs" t="Include" />
+          <e p="CameraScript.cs" t="Include" />
           <e p="ChangeCommand.cs" t="Include" />
+          <e p="Chargement.cs" t="Include" />
           <e p="Chat.cs" t="Include" />
           <e p="ConnectToServer.cs" t="Include" />
           <e p="CreateAndJoinRooms.cs" t="Include" />

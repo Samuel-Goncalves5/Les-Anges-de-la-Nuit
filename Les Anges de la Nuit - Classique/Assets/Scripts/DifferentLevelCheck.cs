@@ -7,7 +7,7 @@ public class DifferentLevelCheck : MonoBehaviour
     private void Update()
     {
         string s = (string) PhotonNetwork.LocalPlayer.CustomProperties["Level"];
-        
+
         foreach (Player p in PhotonNetwork.PlayerListOthers)
         {
             GameObject g = (GameObject) p.CustomProperties["Personnage"];

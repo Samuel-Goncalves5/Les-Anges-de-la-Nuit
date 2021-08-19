@@ -35,12 +35,15 @@ public static class SaveSystem
 
 	private static PlayerData ActualData()
 	{
-		if (Sauvegarde is null)
+		if (Sauvegarde is null || Sauvegarde.general[0] != PhotonNetwork.CurrentRoom.Name)
 			Sauvegarde = 
 				new PlayerData(
-					PhotonNetwork.CurrentRoom.Name, 
+					PhotonNetwork.CurrentRoom.Name,
 					PhotonNetwork.LocalPlayer.NickName
 					);
+		
+		Sauvegarde.general[0] = PhotonNetwork.CurrentRoom.Name;
+		Sauvegarde.general[1] = PhotonNetwork.LocalPlayer.NickName;
 		
 		foreach (Player player in PhotonNetwork.PlayerList)
 		{

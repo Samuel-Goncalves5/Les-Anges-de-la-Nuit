@@ -34,6 +34,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        Chargement.On();
+        
         if (!Load) PhotonNetwork.LocalPlayer.NickName = nameField.text;
         Hashtable h = PhotonNetwork.LocalPlayer.CustomProperties;
         h.Add("Character", "");

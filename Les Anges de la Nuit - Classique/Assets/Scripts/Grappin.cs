@@ -23,7 +23,9 @@ public class Grappin : MonoBehaviour
 
     private void Start()
     {
-        enabled = gameObject.GetComponent<PhotonView>().IsMine;
+        bool a = gameObject.GetComponent<PlayerController>().infiltration;
+        bool b = gameObject.GetComponent<PhotonView>().IsMine;
+        enabled = !a && b;
     }
 
     private void Update()

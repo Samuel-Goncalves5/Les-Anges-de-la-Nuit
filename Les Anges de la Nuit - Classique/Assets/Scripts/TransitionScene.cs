@@ -16,6 +16,8 @@ public class TransitionScene : MonoBehaviour
         if (p is null) {p = g.GetComponent<PlayerController>(); return;}
         if (Vector3.Distance(p.transform.position, transform.position) > distance) return;
         if (!Input.GetKeyDown(MenuInGame.Commands[8])) return;
+
+        Chargement.On();
         
         if (!h.ContainsKey("Level")) h.Add("Level", levelName);
         h["Level"] = levelName;
