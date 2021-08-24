@@ -376,7 +376,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Ascenseur.cs" t="Include" />
+          <e p="AscenseurLigne.cs" t="Include" />
           <e p="AutoSave.cs" t="Include" />
+          <e p="CameraDetection.cs" t="Include" />
           <e p="CameraScript.cs" t="Include" />
           <e p="ChangeCommand.cs" t="Include" />
           <e p="Chargement.cs" t="Include" />

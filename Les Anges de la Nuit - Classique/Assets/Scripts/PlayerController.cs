@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController local;
+    
+    public SkinnedMeshRenderer SkinnedMeshRenderer;
+    
     public static bool STOPCONTROL;
 
     public static List<Recuperable> Objets = new List<Recuperable>();
@@ -21,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public Transform  Reference         ;
     public Transform  PiedDroit         ;
     public Transform  PiedGauche        ;
+
+    public bool ANIM_MARCHE;
     
     //Partie Animation---
     public        Animator _animator;
@@ -48,6 +54,8 @@ public class PlayerController : MonoBehaviour
         bool temp = view.IsMine;
         if (temp)
         {
+            local = this;
+            
             var h = PhotonNetwork.LocalPlayer.CustomProperties;
             var levelName = SceneManager.GetActiveScene().name;
             
@@ -118,7 +126,7 @@ public class PlayerController : MonoBehaviour
         
         DistanceUpdate();
         TranslateUpdate(marcheRapide, marcheMoyenne, marche, boutonRecul, boutonTournerDroite, boutonTournerGauche);
-        JumpUpdate(air, boutonMarche, boutonSauter, boutonRecul);
+        JumpUpdate(air, boutonSauter, boutonRecul);
         AnimationUpdate(boutonRecul, marche, marcheMoyenne, marcheRapide, boutonMarche, boutonCourse, boutonTournerDroite, boutonTournerGauche);
         RunUpdate(marcheMoyenne, air, boutonMarche, boutonCourse, boutonTournerDroite, boutonTournerGauche);
     }
@@ -194,8 +202,10 @@ public class PlayerController : MonoBehaviour
     private void TranslateUpdate (bool marcheRapide, bool marcheMoyenne, bool marche,
          KeyCode boutonRecul, KeyCode boutonTournerDroite, KeyCode boutonTournerGauche)
     {
-        if (infiltration && !STOPCONTROL)
+        if (infiltration)
         {
+            if (STOPCONTROL) return;
+            
             if (Input.GetKey(boutonTournerGauche))
             {
                 Quaternion r = infiltrationCamera.transform.rotation;
@@ -230,25 +240,28 @@ public class PlayerController : MonoBehaviour
         {
             float rotation = Input.GetAxis("Mouse X") * Time.deltaTime;
             transform.Rotate(0, rotation * 300, 0);
-            if (!STOPCONTROL && Input.GetKey(boutonTournerDroite)) transform.Rotate(0, 200 * Time.deltaTime, 0);
-            if (!STOPCONTROL && Input.GetKey(boutonTournerGauche)) transform.Rotate(0, -200 * Time.deltaTime, 0);
+            
+            if (STOPCONTROL) return;
+            
+            if (Input.GetKey(boutonTournerDroite)) transform.Rotate(0, 200 * Time.deltaTime, 0);
+            if (Input.GetKey(boutonTournerGauche)) transform.Rotate(0, -200 * Time.deltaTime, 0);
 
 
             if (marcheRapide) transform.Translate(0, 0, 2f * -5 * Time.deltaTime);
             else if (marcheMoyenne) transform.Translate(0, 0, 1.5f * -5 * Time.deltaTime);
             else if (marche) transform.Translate(0, 0, 1f * -5 * Time.deltaTime);
 
-            if (!STOPCONTROL && Input.GetKey(boutonRecul)) transform.Translate(0, 0, 2.5f * Time.deltaTime);
+            if (Input.GetKey(boutonRecul)) transform.Translate(0, 0, 2.5f * Time.deltaTime);
         }
     }
     
     // JUMP
-    private void JumpUpdate(bool air, KeyCode marche, KeyCode boutonSauter, KeyCode boutonRecul)
+    private void JumpUpdate(bool air, KeyCode boutonSauter, KeyCode boutonRecul)
     {
         if (!air
             && !_animator.GetBool(EnAtterrissage)
             && !STOPCONTROL
-            && (Input.GetKeyDown(boutonSauter) || Input.GetKeyDown(marche) && infiltration)
+            && Input.GetKeyDown(boutonSauter)
             && !Input.GetKey(boutonRecul))
         {
             Rigidbody.AddForce(new Vector3(0,5,0), ForceMode.Impulse);
@@ -311,7 +324,7 @@ public class PlayerController : MonoBehaviour
                                     && !marcheMoyenne 
                                     && !marcheRapide);
         
-            _animator.SetBool(EnMarche, Input.GetKey(boutonMarche) && !STOPCONTROL);
+            _animator.SetBool(EnMarche, Input.GetKey(boutonMarche) && !STOPCONTROL || ANIM_MARCHE);
         
             _animator.SetBool(EnMarcheMoyenne, Input.GetKey(boutonMarche) 
                                                && Input.GetKey(boutonCourse) && !STOPCONTROL);

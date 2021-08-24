@@ -90,7 +90,10 @@ public class Grappin : MonoBehaviour
                 
                 isMoving = false;
                 PlayerController.STOPCONTROL = false;
-                gameObject.GetComponent<Rigidbody>().useGravity = true;
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.useGravity = false;
+                rb.velocity = new Vector3(0,0,0);
+                rb.angularVelocity = new Vector3(0,0,0);
                 if (!(PoidsGrappin is null)) PhotonNetwork.Destroy(PoidsGrappin);
                 
                 PoidsGrappin = PhotonNetwork.Instantiate("Grappin", transform.position, transform.rotation);

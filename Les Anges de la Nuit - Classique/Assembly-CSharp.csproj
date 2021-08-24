@@ -73,7 +73,9 @@
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
      <Compile Include="Assets\Scripts\Ascenseur.cs" />
+     <Compile Include="Assets\Scripts\AscenseurLigne.cs" />
      <Compile Include="Assets\Scripts\AutoSave.cs" />
+     <Compile Include="Assets\Scripts\CameraDetection.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ChangeCommand.cs" />
      <Compile Include="Assets\Scripts\Chargement.cs" />

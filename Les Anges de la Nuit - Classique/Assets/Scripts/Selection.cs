@@ -10,12 +10,18 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class Selection : MonoBehaviourPunCallbacks
 {
     Dictionary<string, Player> sélection = new Dictionary<string, Player>();
-
+    
     public GameObject LaunchButton;
     public GameObject Kick;
     public GameObject KickMenu;
     public Text List;
-
+    
+    public Image  image;
+    public Sprite sprite;
+    public Sprite spriteBan;
+    public Sprite spriteLaunch;
+    public Sprite spriteBanLaunch;
+    
     private void Start()
     {
         StartCoroutine(ReloadRoutine());
@@ -40,8 +46,6 @@ public class Selection : MonoBehaviourPunCallbacks
                 string s = (string) p.CustomProperties["Character"];
                 if (s != "") sélection.Add(s, p);
             }
-
-            Kick.SetActive(PhotonNetwork.IsMasterClient);
         }
         catch (System.NullReferenceException) {yield break;}
 
@@ -51,8 +55,37 @@ public class Selection : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        LaunchButton.SetActive(PhotonNetwork.PlayerList.Length == sélection.Count);
-
+        if (PhotonNetwork.PlayerList.Length == sélection.Count)
+        {
+            LaunchButton.SetActive(true);
+            
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Kick.SetActive(true);
+                image.sprite = spriteBanLaunch;
+            }
+            else
+            {
+                Kick.SetActive(false);
+                image.sprite = spriteLaunch;
+            }
+        }
+        else
+        {
+            LaunchButton.SetActive(false);
+            
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Kick.SetActive(true);
+                image.sprite = spriteBan;
+            }
+            else
+            {
+                Kick.SetActive(false);
+                image.sprite = sprite;
+            }
+        }
+        
         if (!PhotonNetwork.InRoom) return;
         
         string s = PhotonNetwork.CurrentRoom.Name + " :\n" + PhotonNetwork.CurrentRoom.PlayerCount;

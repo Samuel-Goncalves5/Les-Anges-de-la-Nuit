@@ -31,11 +31,11 @@ public class SpawnPlayers : MonoBehaviour
             {
                 switch (c)
                 {
-                    case "Elea"  : position = new Vector3(-9,6.4f,-3); break;
-                    case "Eva"   : position = new Vector3(-7,.15f,-3); break;
-                    case "Elena" : position = new Vector3(9,.15f,-3); break;
-                    case "Emma"  : position = new Vector3(-9,.15f,-3); break;
-                    default      : position = new Vector3(-9,.15f,-3); break;
+                    case "Elea"  : position = new Vector3(-9,6.4f,-4); break;
+                    case "Eva"   : position = new Vector3(-7,.15f,-4); break;
+                    case "Elena" : position = new Vector3(9,.15f,-4); break;
+                    case "Emma"  : position = new Vector3(-9,.15f,-4); break;
+                    default      : position = new Vector3(-9,.15f,-4); break;
                 }
                 rotation = Quaternion.Euler(0,-90,0);
                 break;
@@ -58,8 +58,6 @@ public class SpawnPlayers : MonoBehaviour
         GameObject g = PhotonNetwork.Instantiate(c, position, rotation);
         if (!h.ContainsKey("Personnage")) h.Add("Personnage", g);
         h["Personnage"] = g;
-        
-        
     }
     
     private void Start()

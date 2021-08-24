@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9383180a228ec7419e278e526c98e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkinnedMeshRenderer: {fileID: 2359341620197557975}
   view: {fileID: 0}
   Rigidbody: {fileID: 7598630556975126314}
   eyes: {fileID: 3985200043371286935}
@@ -333,6 +334,7 @@ MonoBehaviour:
   Reference: {fileID: 6750434079339599963}
   PiedDroit: {fileID: 8361345298413815753}
   PiedGauche: {fileID: 4670409662519807528}
+  ANIM_MARCHE: 0
   _animator: {fileID: 7094328060448650166}
   infiltration: 0
 --- !u!114 &1107730356480108155
@@ -1689,7 +1691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6741208080582909072
 Transform:
   m_ObjectHideFlags: 0
@@ -1697,8 +1699,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6154264453842204296}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -6.5, y: 0.78999996, z: -0.26}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -6.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3389518412015992875}
