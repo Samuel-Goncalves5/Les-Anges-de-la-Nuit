@@ -174,6 +174,7 @@ public class Selection : MonoBehaviourPunCallbacks
     public void Elena() => SelectOne("Elena");
     public void Quitter()
     {
+        Chargement.On();
         PhotonNetwork.LeaveRoom();
     }
 

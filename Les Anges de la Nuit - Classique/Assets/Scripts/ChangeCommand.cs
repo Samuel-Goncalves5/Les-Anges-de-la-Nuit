@@ -6,7 +6,7 @@ public class ChangeCommand : MonoBehaviour
 {
     public int index;
     private MenuInGame _menuInGame;
-
+    
     private void Start()
     {
         _menuInGame = transform.parent.parent.GetComponent<MenuInGame>();

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
@@ -17,7 +18,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
+        try {PhotonNetwork.JoinRoom(joinInput.text);}
+        catch (System.Exception) {Debug.Log("Error : JoinRoom");}
     }
 
     public void RecreateRoom()

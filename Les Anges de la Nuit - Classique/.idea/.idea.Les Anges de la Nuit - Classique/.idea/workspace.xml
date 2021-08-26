@@ -33,25 +33,34 @@
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/boot.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level2" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level3" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level4" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/level4.resS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/resources.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/resources.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets1.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets1.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets1.assets.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets2.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets2.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets3.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets3.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets4.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets4.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Les Anges de la Nuit - Classique/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Les Anges de la Nuit - Classique/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets2.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/../Exécutable Classique/Les Anges de la Nuit - Classique_Data/sharedassets2.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Les Anges de la Nuit - Classique/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Les Anges de la Nuit - Classique/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Camera.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Camera/Camera1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Camera/Camera1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Camera/Camera2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Camera/Camera2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sélection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sélection.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChangeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChangeCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreateAndJoinRooms.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreateAndJoinRooms.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DifferentLevelCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DifferentLevelCheck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Selection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Selection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4c/4c16ee9da1ba718e32a1be4b7aa776ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/64/64be08d74b36d4568e1599bed8df0667" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8f/8f15a69daf6a03e5ac8598ea78e2fce7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b5/b58f04dafdaf218c1cc51c8d1b0ec654" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastBuild.buildreport" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Cinemachine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Cinemachine.dll" afterDir="false" />
@@ -65,25 +74,25 @@
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/UnityEngine.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/boot.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level2" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level4" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level4.resS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/resources.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/resources.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets1.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets1.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets1.assets.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets2.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets2.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets3.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets3.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets4.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets4.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets2.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets2.assets.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/ScriptsOnlyCache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/ScriptsOnlyCache.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/f0412c-150d8c7f02a44d3418.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/f0412c-150d8c7f02a44d3418.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/60224f-50e10ede62a2e524aa.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/60224f-50e10ede62a2e524aa.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/60224f-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/60224f-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/PhotonChat.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/PhotonChat.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/PunDemos.DemoHubEditor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/PunDemos.DemoHubEditor.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +128,6 @@
         <option value="$PROJECT_DIR$/Assets/Animations/Scripts/animationStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Animations/Scripts/AnimationStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/KickButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ChangeCommand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuInGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AutoSave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueCanvas.cs" />
@@ -138,19 +146,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PoidsGrappin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DifferentLevelCheck.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Chargement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TransitionScene.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreateAndJoinRooms.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ascenseur.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuSave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Grappin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SpawnPlayers.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Selection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AscenseurLigne.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraDetection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Selection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreateAndJoinRooms.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DifferentLevelCheck.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ascenseur.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChangeCommand.cs" />
       </list>
     </option>
   </component>
@@ -279,6 +288,10 @@
       <workItem from="1629720427883" duration="4397000" />
       <workItem from="1629809646717" duration="5373000" />
       <workItem from="1629818194665" duration="26000" />
+      <workItem from="1629896035783" duration="715000" />
+      <workItem from="1629896994067" duration="638000" />
+      <workItem from="1629902397165" duration="1287000" />
+      <workItem from="1629974717150" duration="2836000" />
     </task>
     <servers />
   </component>
